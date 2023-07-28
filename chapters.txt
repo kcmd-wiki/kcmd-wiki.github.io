@@ -1,0 +1,23 @@
+✨ 초급 과정
+    튜토리얼 : incomplete
+-----
+⭐ 중급 과정
+    NBT : incomplete
+    execute : incomplete
+-----
+🏆 고급 과정
+-----
+⚡ 특수 기술
+    스코어보드 ID 시스템 : scoreboard_id_system
+-----
+🔥 최적화 전략
+-----
+⚠️ ???
+    execute1 : incomplete
+    execute2 : incomplete
+    execute3 : incomplete
+    execute4 : incomplete
+    execute5 : incomplete
+    execute6 : incomplete
+    execute7 : incomplete
+    execute8 : incomplete

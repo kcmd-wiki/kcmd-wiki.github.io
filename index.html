@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-CMD WIKI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/showdown@2.0.4/dist/showdown.min.js"></script>
+    <style>
+.mainpage {
+    margin: auto;
+    width : 1080px;
+    overflow-wrap: break-word;
+}
+.subpage {
+    margin: auto;
+    width : 860px;
+    overflow-wrap: break-word;
+}
+pre {
+    font-family: 'Consolas';
+    font-size: 100%;
+    color: white;
+    background-color: black;
+    padding: 10px 20px 10px 20px;
+    line-height: 150%;
+}
+pre > code {
+    font-family: 'Consolas';
+}
+span.selector {
+    color: #05cc94;
+}
+span.selectorProperties {
+    color: #4196b7;
+}
+span.not {
+    color: #ff5151;
+}
+span.minecraft {
+    color: #3c47e6;
+}
+span.number {
+    color: #db480f;
+    font-weight: bold;
+}
+span.bracket {
+    color: #05cc94;
+    font-weight: bold;
+}
+span.error {
+    background-color: #d0320d;
+    border-radius: 2px;
+}
+span.light-error {
+    background-color: #52503a;
+    border-radius: 2px;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+span.function {
+    color: #53a600;
+}
+span.comment {
+    color: #646363;
+}
+span.keyword {
+    color: #e951ff;
+}
+span.var {
+    color: #caa536;
+}
+    </style>
+</head>
+<body>
+    <header class="p-2 text-bg-dark">
+    <div class="container mainpage">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="https://k-cmd-wiki-test.github.io/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <span class="fs-4">✱ K-CMD WIKI</span>
+        </a>
+        <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="#" class="nav-link px-2 text-white">Discord</a></li>
+          <li><a href="https://github.com/k-cmd-wiki-test/k-cmd-wiki-test.github.io" class="nav-link px-2 text-white">Github</a></li>
+        </ul>
+      </div>
+    </div>
+    </header>
+    <div class="container px-5 py-5 mainpage" id="content">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script>
+let converter = new showdown.Converter({'noHeaderId':true}); // ,'omitExtraWLInCodeBlocks':true?
+let req = new XMLHttpRequest();
+let contentElement = document.getElementById('content');
+function applyMcfunctionStyleGlobal() {
+    for (let code of document.querySelectorAll('pre > code.mcfunction')) {
+        lines = code.innerText.split('\n');
+        if (lines[lines.length-1] == '') lines.pop();
+        for (let i in lines) {
+            lines[i] = mclangHighlight(lines[i]);
+        }
+        code.innerHTML = lines.join('\n');
+    }
+}
+function loadPage() {
+    if (window.location.hash.length >= 2) {
+        contentElement.innerHTML = '';
+        contentElement.classList.add("subpage");
+        req.onload = () => {
+            contentElement.innerHTML = '<button class="btn btn-light" style="float: right;" onclick="window.location.hash=\'\';">‹ Home</button>' + converter.makeHtml(req.responseText);
+            applyMcfunctionStyleGlobal();
+        }
+        req.open('GET','https://raw.githubusercontent.com/k-cmd-wiki-test/k-cmd-wiki-test.github.io/main/pages/' + window.location.hash.slice(1) + '.md')
+        req.send();
+    } else {
+        contentElement.innerHTML = '\
+<div class="alert alert-dark" role="alert">\
+  <b>💡 K-CMD 위키에 오신 걸 환영합니다!</b> <br><br>\
+  K-CMD 위키는 K-CMD 디스코드에서 자료 정리 어쩌구 저쩌구 한국 커맨드의 발전을 위해 공개 어쩌구 저쩌구\
+</div>';
+        contentElement.classList.remove("subpage");
+        req.onload = () => {
+            let count = 3;
+            let text = '<div><div>';
+            for (let line of req.responseText.split('\n')) {
+                if (line.replaceAll('-','').trim().length == 0) continue;
+                line = line.split(':');
+                if (line.length == 2) {
+                    text += '<button class="btn btn-light" onclick="window.location.hash=\'#'+line[1].replaceAll(' ','')+'\';">'+line[0].trim()+'</button>';
+                } else if (line.length == 1) {
+                    if (count == 3) {
+                        text += '</div></div><div class="row g-4 py-5 row-cols-1 row-cols-lg-3"><div class="feature col">'
+                        count = 0;
+                    } else {
+                        text += '</div><div class="feature col">'
+                    }
+                    text += '<h3 class="fs-3 pb-3 border-bottom">'+line[0].trim()+'</h3>'
+                    count += 1;
+                }
+            }
+            text += '</div></div>';
+            contentElement.innerHTML += text;
+            applyMcfunctionStyleGlobal();
+        }
+        req.open('GET','https://raw.githubusercontent.com/k-cmd-wiki-test/k-cmd-wiki-test.github.io/main/chapters.txt')
+        req.send();
+    }
+}
+window.addEventListener("hashchange", (event) => {loadPage();});
+window.addEventListener("load", (event) => {loadPage();});
+
+/**
+ *
+ * @param row = the minecraft command to be highlighted
+ * @returns {string} with all <span> elements to highlight the command for your webside
+ */
+
+function mclangHighlight(row) {
+  let replacement = row;
+
+  const searchTermAllKeywords = ["advancement ", "attribute", "bossbar ", "clear ", "clone ", "data ", "datapack ", "debug ", "defaultgamemode ", "difficulty ", "effect ", "enchant ", "execute ", "experience ", "fill ", "forceload ", "function ", "gamemode ", "gamerule ", "give ", "kill ", "list ", "locate ", "locatebiome ", "loot ", "particle ", "playsound ", "publish ", "recipe ", "reload ", "replaceitem ", "say ", "schedule ", "scoreboard ", "seed ", "setblock ", "setworldspawn ", "spawnpoint ", "spectate ", "spreadplayers ", "stopsound ", "summon ", "tag ", "team ", "teleport ", "tell ", "tellraw ", "time ", "title ", "tp ", "weather ", "worldborder ", "xp "];
+  let searchTermKeywords = [];
+  const searchTermSelectors = ["@p", "@s", "@r", "@a", "@e"];
+  const selectorProperties = ["scores=", "nbt=", "type=", "tag=", "name=", "advancements=", "distance=", "dx=", "dy=", "dz=", "gamemode=", "level=", "limit=", "predicate=", "sort=", "team=", "x=", "y=", "z=", "x_rotation=", "y_rotation="];
+  const selectorX = new Array(",");
+  const searchTermCurlyBrackets = ["{", "}"];
+  let isScores;
+  const searchTermStop = [",", "}", "\"", "]"];
+  const searchTermNumber = [".", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+
+  // select existing keywords
+  for (let i = 0; i < searchTermAllKeywords.length; i++) {
+    if (row.search(searchTermAllKeywords[i]) >= 0) {
+      searchTermKeywords[searchTermKeywords.length] = searchTermAllKeywords[i];
+    }
+  }
+
+
+  if (replacement == "\n" || replacement == "") {
+    replacement = "<span style=\"visibility: hidden;\">empty</span>";
+  } else if (row.startsWith("#")) { // comment gray
+    replacement = "<span class=\"comment\">" + replacement + "</span>";
+  } else {
+    // highlight selectors
+    for (let j = 0; j < searchTermSelectors.length; j++) {
+      replacement = replacement.replace(new RegExp(searchTermSelectors[j], "gi"), "<span class=\"selector\">" + searchTermSelectors[j] + "</span>")
+
+      let startpos = row.indexOf(searchTermSelectors[j] + "[");
+      while (startpos > -1) {
+        // Endpos
+        let loopEnd = row.length;
+        let br = 0;
+
+        for (let u = startpos; u < loopEnd; u++) {
+          if (row.charAt(u) === "[") {
+            br += 1;
+          }
+          if (row.charAt(u) === "]") {
+            br -= 1;
+            if (br === 0) {
+              loopEnd = 0;
+              endpos = u;
+            }
+          }
+        }
+        // copy selector properties
+        const section = row.slice(startpos + 3, endpos);
+        let newInset = "";
+
+        for (let y = 0; y < section.length; y++) {
+          for (let z = 0; z < selectorProperties.length; z++) { // search for selectorProperties at this index
+            if (section.indexOf(selectorProperties[z], y) === y) {
+              newInset += "<span class=\"selectorProperties\">" + selectorProperties[z] + "</span>";
+              y += selectorProperties[z].length;
+              isScores = false;
+              if (selectorProperties[z] === "scores=") {
+                isScores = true;
+              }
+            }
+          }
+          if (section.indexOf("!", y) === y) { // search !
+            newInset += "<span class=\"not\">!</span>";
+          } else if (section.indexOf("#minecraft:", y) === y) { // search #minecraft:
+            newInset += "<span class=\"minecraft\">#minecraft:</span>";
+            y += 10;
+          } else if (section.indexOf("minecraft:", y) === y) { // search minecraft:
+            newInset += "<span class=\"minecraft\">minecraft:</span>";
+            y += 9;
+          } else if (section.indexOf("{", y) === y) { // skip brackets
+            let bs = 0;
+            for (let u = y; u < section.length; u++) {
+              if (section.charAt(u) === "{") {
+                bs += 1;
+              }
+              if (section.charAt(u) === "}") {
+                bs -= 1;
+                if (bs === 0) {
+                  u++;
+                  // replace all numbers in scores={}
+                  if (isScores) {
+
+                    const kf = section.indexOf("=", y);
+                    if (kf < u + 1 && kf !== -1) {
+
+                      for (w1 = y; w1 < u + 1; w1++) {
+                        w1 = section.indexOf("=", w1)
+                        if (w1 < u + 1 && w1 !== -1) {
+                          // searching for endpos
+                          arrayEnd = [];
+
+                          for (let kr = 0; kr < searchTermStop.length; kr++) {
+                            if (section.indexOf(searchTermStop[kr], w1) !== -1) {
+                              arrayEnd[arrayEnd.length] = section.indexOf(searchTermStop[kr], w1);
+                            }
+                          }
+                          arrayEnd = Math.min(...arrayEnd);
+
+                          newInset += "<span class=\"var\">" + section.slice(y, w1 + 1) + "</span>";
+                          y = arrayEnd;
+                          newInset += "<span class=\"number\">" + section.slice(w1 + 1, arrayEnd) + "</span>";
+
+                        } else { // end loop if no more = characters find
+                          w1 = u + 1;
+                          newInset += section.slice(arrayEnd, arrayEnd + 2);
+                        }
+                      }
+                    }
+                  } else {
+                    newInset += "<span class=\"var\">" + section.slice(y, u + 1) + "</span>";
+                  }
+                  y = u;
+                  break;
+                }
+              }
+            }
+          } else { // Copy variables up to the end of a comma or parenthesis
+            const fs1 = section.indexOf(",", y);
+            if (fs1 >= 0) { // continue if , find
+              // if the variable is a number, color it differently
+              var fg = section.slice(y, fs1);
+              var fgl = 0;
+              for (let c = 0; c < fg.length; c++) {
+                for (let m = 0; m < searchTermNumber.length; m++) {
+                  if (searchTermNumber[m] === fg.charAt(c)) {
+                    fgl += 1;
+                  }
+                }
+              }
+              if (fgl === fg.length) {
+                newInset += "<span class=\"number\">" + section.slice(y, fs1 + 1) + "</span>";
+                y += section.slice(y, fs1).length;
+              } else {
+                newInset += "<span class=\"var\">" + section.slice(y, fs1 + 1) + "</span>";
+                y += section.slice(y, fs1).length;
+              }
+            } else {
+              // if the variable is a number, color it differently
+              fg = section.slice(y, section.length);
+              fgl = 0;
+              for (let s = 0; s < fg.length; s++) {
+                for (let g = 0; g < searchTermNumber.length; g++) {
+                  if (searchTermNumber[g] === fg.charAt(s)) {
+                    fgl += 1;
+                  }
+                }
+              }
+              if (fgl === fg.length) {
+                newInset += "<span class=\"number\">" + section.slice(y, section.length) + "</span>";
+                y += section.slice(y, section.length).length;
+              } else {
+                newInset += "<span class=\"var\">" + section.slice(y, section.length) + "</span>";
+                y += section.slice(y, section.length).length;
+              }
+            }
+          }
+        }
+
+        for (let h = 0; h < selectorX.length; h++) {
+          newInset = newInset.replace(new RegExp(selectorX[h], "gi"), "<span class=\"bracket\">" + selectorX[h] + "</span>");
+        }
+        startpos = row.indexOf(searchTermSelectors[j] + "[", endpos);
+        replacement = replacement.replace(section, newInset);
+      }
+    }
+    // general coloring of code parts
+    let searchFunction = row.search("function ");
+    if (searchFunction >= 0) {
+      searchFunction = row.indexOf(" ", searchFunction);
+      searchFunction = row.slice(searchFunction, row.length);
+      replacement = replacement.replace(searchFunction, " <span class=\"function\">" + searchFunction + "</span>");
+    }
+    for (let j = 0; j < searchTermKeywords.length; j++) {
+      if (replacement.indexOf(searchTermKeywords[j]) === 0) {
+        replacement = replacement.replace(searchTermKeywords[j], '<span class="keyword">' + searchTermKeywords[j] + '</span>');
+      }
+      if (searchTermKeywords[j] === "execute ") {
+        replacement = replacement.replace(new RegExp(" run " + searchTermKeywords[j], "gi"), " <span title=\"Useless\" class=\"light-error\">run execute</span> ");
+      } else {
+        replacement = replacement.replace(new RegExp(" run " + searchTermKeywords[j], "gi"), " run <span class=\"keyword\">" + searchTermKeywords[j] + "</span>");
+      }
+    }
+
+    for (let j = 0; j < searchTermCurlyBrackets.length; j++) {
+      replacement = replacement.replace(new RegExp(searchTermCurlyBrackets[j], "gi"), "<span class=\"bracket\">" + searchTermCurlyBrackets[j] + "</span>");
+    }
+
+    replacement = replacement.replace(new RegExp("\\[", "gi"), "<span class=\"bracket\">[</span>");
+    replacement = replacement.replace(new RegExp("\\]", "gi"), "<span class=\"bracket\">]</span>");
+  }
+  return replacement;
+}
+</script>
+</body>
+</html>
