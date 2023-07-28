@@ -16,7 +16,7 @@ https://k-cmd-wiki.github.io/
 
 링크의 맨 뒤에 해시(`#`) 기호와 함께 뭔 문자열이 있으면 이 리포지토리의 [pages 폴더](https://github.com/k-cmd-wiki/k-cmd-wiki.github.io/tree/main/pages) 안 해당 이름의 .md 파일이 불러와집니다.
 
-예를 들어 https://k-cmd-wiki.github.io/#test -> [pages/test.md](https://github.com/k-cmd-wiki/k-cmd-wiki.github.io/blob/main/pages/test.md) 와 같이 연결됩니다.
+예를 들어 https://k-cmd-wiki.github.io/#test >>> [pages/test.md](https://github.com/k-cmd-wiki/k-cmd-wiki.github.io/blob/main/pages/test.md) 와 같이 연결됩니다.
 
 하위 페이지는 .md 파일을 불러와서 html 코드로 변환하는 식으로 동작합니다. 마크다운 문법(.md)을 사용하는게 미숙하신 분들은 [관련 나무위키 문서](https://namu.wiki/w/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4)를 읽고 오시면은 금방 익히실 수 있습니다. 
 
