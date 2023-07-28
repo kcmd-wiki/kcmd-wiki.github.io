@@ -10,6 +10,8 @@ https://k-cmd-wiki.github.io/
 
 .html 파일 하나만으로 구성된 SPA(싱글 페이지 애플리케이션) 웹사이트이며, 사용자의 컴퓨터에서 여기 깃허브 리포지토리의 데이터를 불러오는 식으로 동작합니다.
 
+<br>
+
 ### 하위 페이지
 
 하위 페이지는 pages 폴더의 .md 파일을 불러와서 html 코드로 변환하는 식으로 동작합니다. 링크의 맨 뒤에 해시(`#`) 기호와 함께 확장자를 제외한 파일명이 있다면 이 리포지토리의 pages 폴더 안 해당 이름의 .md 파일이 불러와집니다.
@@ -17,6 +19,8 @@ https://k-cmd-wiki.github.io/
 예를 들어 https://k-cmd-wiki.github.io/#test -> https://github.com/k-cmd-wiki/k-cmd-wiki.github.io/blob/main/pages/test.md 와 같이 연결됩니다.
 
 마크다운 문법(.md)을 사용하는게 미숙하신 분들은 관련 나무위키 문서를 읽고 오시면은 금방 익히실 수 있습니다. https://namu.wiki/w/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4
+
+<br>
 
 ### chapters.txt
 
@@ -55,6 +59,8 @@ https://k-cmd-wiki.github.io/
 파일을 추가하고 싶으면 Add file 버튼을 누르고, 파일을 수정하고 싶으면 펜 모양의 Edit this file 버튼을 누르면 편집창이 열립니다.
 
 그리고 파일을 작성한뒤 저장하면, 위키 사이트에 즉시 반영됩니다. 끝.
+
+<br>
 
 ### 멤버가 아닌 경우
 
