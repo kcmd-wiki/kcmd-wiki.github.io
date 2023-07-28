@@ -21,3 +21,4 @@
     execute6 : incomplete
     execute7 : incomplete
     execute8 : incomplete
+    풀리퀘 테스트 : prtest
