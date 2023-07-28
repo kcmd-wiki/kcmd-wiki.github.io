@@ -13,3 +13,7 @@ execute as @a at @s run tp @s ^ ^ ^1
 execute as @a at @s run tp @s ^ ^ ^-1
 ```
 
+mcfunction
+    # 다른 코드 블록
+    execute as @a at @s run tp @s ^ ^ ^1
+    execute as @a at @s run tp @s ^ ^ ^-1
