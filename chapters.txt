@@ -8,7 +8,7 @@
 🏆 고급 과정
 -----
 ⚡ 특수 기술
-    스코어보드 ID 시스템 : scoreboard_id_system
+    스코어보드 ID 시스템 : scoreboard-id-system
 -----
 🔥 최적화 전략
 -----
