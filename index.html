@@ -77,12 +77,12 @@ span.var {
     <header class="p-2 text-bg-dark">
     <div class="container mainpage">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="https://k-cmd-wiki-test.github.io/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <a href="https://k-cmd-wiki.github.io/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
           <span class="fs-4">✱ K-CMD WIKI</span>
         </a>
         <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="#" class="nav-link px-2 text-white">Discord</a></li>
-          <li><a href="https://github.com/k-cmd-wiki-test/k-cmd-wiki-test.github.io" class="nav-link px-2 text-white">Github</a></li>
+          <li><a href="https://github.com/k-cmd-wiki/k-cmd-wiki.github.io" class="nav-link px-2 text-white">Github</a></li>
         </ul>
       </div>
     </div>
@@ -112,7 +112,7 @@ function loadPage() {
             contentElement.innerHTML = '<button class="btn btn-light" style="float: right;" onclick="window.location.hash=\'\';">‹ Home</button>' + converter.makeHtml(req.responseText);
             applyMcfunctionStyleGlobal();
         }
-        req.open('GET','https://raw.githubusercontent.com/k-cmd-wiki-test/k-cmd-wiki-test.github.io/main/pages/' + window.location.hash.slice(1) + '.md')
+        req.open('GET','https://raw.githubusercontent.com/k-cmd-wiki/k-cmd-wiki.github.io/main/pages/' + window.location.hash.slice(1) + '.md')
         req.send();
     } else {
         contentElement.innerHTML = '\
@@ -144,7 +144,7 @@ function loadPage() {
             contentElement.innerHTML += text;
             applyMcfunctionStyleGlobal();
         }
-        req.open('GET','https://raw.githubusercontent.com/k-cmd-wiki-test/k-cmd-wiki-test.github.io/main/chapters.txt')
+        req.open('GET','https://raw.githubusercontent.com/k-cmd-wiki/k-cmd-wiki.github.io/main/chapters.txt')
         req.send();
     }
 }
