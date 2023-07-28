@@ -26,7 +26,7 @@ https://k-cmd-wiki.github.io/
 
 [홈화면](https://k-cmd-wiki.github.io/)의 버튼을 누르면 해시 주소값이 입력되어 하위 페이지로 연결됩니다.
 
-이곳의 [chapters.txt](https://github.com/k-cmd-wiki/k-cmd-wiki.github.io/blob/main/chapters.txt) 파일의 내용이 이러한 버튼과 그 위에 붙어있는 부제목의 역할을 합니다.
+홈화면의 버튼과 링크 그리고 부제목은 전부 이곳의 [chapters.txt](https://github.com/k-cmd-wiki/k-cmd-wiki.github.io/blob/main/chapters.txt) 에서 추가/편집/제거가 가능합니다.
 
 chapters.txt 파일에서 세미콜론(`:`) 기호가 정확히 1개 배치되어 있는 텍스트는 버튼으로 인식됩니다. 세미콜론의 왼쪽이 버튼의 이름이며, 오른쪽은 연결할 하위 페이지의 파일명이자 해시 주소입니다. 예를 들어 아래 버튼은 https://k-cmd-wiki.github.io/#test 로 연결됩니다.
 ```
