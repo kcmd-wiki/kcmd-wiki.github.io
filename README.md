@@ -10,7 +10,9 @@ https://k-cmd-wiki.github.io/
 
 .html 파일 하나만으로 구성된 SPA(싱글 페이지 애플리케이션) 웹사이트이며, 사용자의 컴퓨터에서 여기 깃허브 리포지토리의 데이터를 불러오는 식으로 동작합니다.
 
-홈화면은 클라이언트가 chapters.txt 파일을 불러와서 그에 맞게 버튼과 부제목을 생성하며, 하위 페이지는 pages 폴더의 .md 파일을 불러와서 html 코드로 변환하는 식으로 동작합니다.
+하위 페이지는 pages 폴더의 .md 파일을 불러와서 html 코드로 변환하는 식으로 동작합니다. 링크의 맨 뒤에 해시(`#`) 기호와 함께 확장자를 제외한 파일명이 있다면 이 리포지토리의 pages 폴더 안 해당 이름의 .md 파일이 불러와집니다. 예를 들어 https://k-cmd-wiki.github.io/#test 링크는 https://github.com/k-cmd-wiki/k-cmd-wiki.github.io/blob/main/pages/test.md 파일의 내용이 출력됩니다.
+
+홈화면의 경우 chapters.txt 파일을 불러와서 그 내용에 따라 버튼과 부제목이 생성됩니다. 각 버튼은 하위 페이지로 연결되는 링크가 붙어있으며, 자세한 내용은 밑에서 확인하세요.
 
 ## chapters.txt
 
