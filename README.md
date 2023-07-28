@@ -8,7 +8,7 @@ https://k-cmd-wiki.github.io/
 
 홈화면은 클라이언트가 chapters.txt 파일을 불러와서 그에 맞게 버튼과 부제목을 생성하며, 하위 페이지는 pages 폴더의 .md 파일을 불러와서 html 코드로 변환하는 식으로 동작합니다.
 
-### chapters.txt
+## chapters.txt
 
 chapters.txt 파일은 줄단위로 파싱되며, 맨 오른쪽과 맨 왼쪽에 있는 공백을 무시합니다.
 
