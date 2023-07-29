@@ -134,7 +134,7 @@ span.var {
             </button>
           </li>
           <li><a href="#" class="nav-link px-2 text-white"><s>Discord</s></a></li>
-          <li><a href="https://github.com/k-cmd-wiki/k-cmd-wiki.github.io" class="nav-link px-2 text-white">Github</a></li>
+          <li><a href="https://github.com/k-cmd-wiki/content" class="nav-link px-2 text-white">Github</a></li>
         </ul>
       </div>
     </div>
@@ -200,7 +200,7 @@ function loadPage() {
             contentElement.innerHTML += converter.makeHtml(req.responseText) + '<hr><button class="btn btn-light" style="float: right;" onclick="window.location.hash=\'\';">‹ Home</button><br>';
             applyMcfunctionStyleGlobal();
         }
-        req.open('GET','https://raw.githubusercontent.com/k-cmd-wiki/k-cmd-wiki.github.io/main/pages/' + window.location.hash.slice(1) + '.md')
+        req.open('GET','https://raw.githubusercontent.com/k-cmd-wiki/content/main/' + window.location.hash.slice(1) + '.md')
         req.send();
     } else {
         contentElement.innerHTML = '\
