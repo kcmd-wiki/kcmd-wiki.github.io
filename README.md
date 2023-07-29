@@ -1,4 +1,4 @@
-# k-cmd-wiki.github.io
+# k-cmd-wiki
 
 https://k-cmd-wiki.github.io/
 
@@ -8,41 +8,11 @@ https://k-cmd-wiki.github.io/
 
 ## 편집 기여하기
 
-깃허브 계정이 있으시다면 누구나 문서 작성과 편집이 가능합니다.
+https://github.com/k-cmd-wiki/content
 
-~~어떤 버튼을 잘못 눌렀다가 실수로 여기에 들어와버린 당신조차 말이죠!~~
+깃허브 계정이 있으시다면 위 링크에서 누구나 문서 작성과 편집이 가능합니다.
 
-<br>
-
-### 멤버인 경우
-
-관리자의 승인 없이 편집이 가능합니다.
-
-파일을 추가하고 싶으면 Add file 버튼을 누르고, 파일을 수정하고 싶으면 펜 모양의 Edit this file 버튼을 누르면 편집창이 열립니다.
-
-그리고 파일을 작성한뒤 저장하면, 위키 사이트에 즉시 반영됩니다. 끝.
-
-<br>
-
-### 멤버가 아닌 경우
-
-> 더 상세히 적어주실 분 구함
-
-1. 본인의 리포지토리로 포크
-2. 포크한 걸 원하는대로 편집
-3. 포크한 걸 풀리퀘스트
-4. 관리자가 승인할때까지 대기
-
-<br>
-<br>
-<br>
-
-## 마크다운 문법 연습장
-
-https://k-cmd-wiki.github.io/preview
-
-저장 기능이 없으므로 복사 붙여넣기를 사용하세요.
-마크다운 문법(.md)을 사용하는게 미숙하신 분들은 [관련 나무위키 문서](https://namu.wiki/w/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4)를 읽고 오시면은 금방 익히실 수 있습니다
+~~여러가지 버튼을 어떠한 일련의 과정을 통해 잘못 눌렀다가 실수로 여기에 들어와버린 당신조차 말이죠!~~
 
 <br>
 <br>
@@ -56,9 +26,9 @@ https://k-cmd-wiki.github.io/preview
 
 ### 하위 페이지
 
-링크의 맨 뒤에 해시(`#`) 기호와 함께 뭔 문자열이 있으면 이 리포지토리의 [pages 폴더](https://github.com/k-cmd-wiki/k-cmd-wiki.github.io/tree/main/pages) 안 해당 이름의 .md 파일이 불러와집니다.
+링크의 맨 뒤에 해시(`#`) 기호와 함께 어떤 문자열이 있으면 [content 리포지토리](https://github.com/k-cmd-wiki/content)에서 해당 이름의 .md 파일이 불러와집니다.
 
-예를 들어 https://k-cmd-wiki.github.io/#test >>> [pages/test.md](https://github.com/k-cmd-wiki/k-cmd-wiki.github.io/blob/main/pages/test.md) 와 같이 연결됩니다.
+예를 들어 https://k-cmd-wiki.github.io/#test >>> [pages/test.md](https://github.com/k-cmd-wiki/content/blob/main/test.md) 와 같이 연결됩니다.
 
 하위 페이지는 .md 파일을 불러와서 html 코드로 변환하는 식으로 동작합니다. 여기에 [showdownjs](https://github.com/showdownjs/showdown)가 사용됩니다.
 
