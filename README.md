@@ -77,6 +77,8 @@ chapters.txt 파일에서 세미콜론(`:`) 기호가 정확히 1개 배치되�
 <br>
 <br>
 
-## 마크다운 문법 미리보기
+## 마크다운 문법 연습장
 
 https://k-cmd-wiki.github.io/preview
+
+저장 기능이 없으므로 복사 붙여넣기를 사용하세요
