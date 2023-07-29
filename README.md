@@ -28,7 +28,7 @@ https://github.com/k-cmd-wiki/content
 
 링크의 맨 뒤에 해시(`#`) 기호와 함께 어떤 문자열이 있으면 [content 리포지토리](https://github.com/k-cmd-wiki/content)에서 해당 이름의 .md 파일이 불러와집니다.
 
-예를 들어 https://k-cmd-wiki.github.io/#test >>> [pages/test.md](https://github.com/k-cmd-wiki/content/blob/main/test.md) 와 같이 연결됩니다.
+예를 들어 https://k-cmd-wiki.github.io/#test >>> [test.md](https://github.com/k-cmd-wiki/content/blob/main/test.md) 와 같이 연결됩니다.
 
 하위 페이지는 .md 파일을 불러와서 html 코드로 변환하는 식으로 동작합니다. 여기에 [showdownjs](https://github.com/showdownjs/showdown)가 사용됩니다.
 
