@@ -77,6 +77,11 @@ h1 {
     margin: 30px 0px;
     border-bottom: 2px solid rgba(128,128,128,0.3);
 }
+h1.firstline {
+    padding: 0px 0px 10px 0px;
+    margin: 30px 0px;
+    border-bottom: 2px solid rgba(128,128,128,0.3);
+}
 h2 {
     padding: 50px 0px 10px 0px;
     margin: 30px 0px;
@@ -215,7 +220,10 @@ function loadPage() {
         contentElement.innerHTML = '<button class="btn btn-light" style="float: right;" onclick="window.location.hash=\'\';">‹ Home</button>';
         contentElement.classList.add("subpage");
         req.onload = () => {
-            contentElement.innerHTML += converter.makeHtml(req.responseText) + '<hr><button class="btn btn-light" style="float: right;" onclick="window.location.hash=\'\';">‹ Home</button><br>';
+            let result = converter.makeHtml(req.responseText);
+            let firstline = result.startsWith('<h1>');
+            contentElement.innerHTML += result + '<hr><button class="btn btn-light" style="float: right;" onclick="window.location.hash=\'\';">‹ Home</button><br>';
+            if (firstline) contentElement.getElementsByTagName('h1')[0].classList.add('firstline');
             applyMcfunctionStyleGlobal();
         }
         req.open('GET','https://raw.githubusercontent.com/k-cmd-wiki/content/main/' + window.location.hash.slice(1) + '.md')
