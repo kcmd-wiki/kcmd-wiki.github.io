@@ -207,7 +207,7 @@ let req = new XMLHttpRequest();
 let contentElement = document.getElementById('content');
 function applyMcfunctionStyleGlobal() {
     for (let code of document.querySelectorAll('pre > code.mcfunction')) {
-        lines = code.innerText.split('\n');
+        lines = code.innerHTML.split('\n');
         if (lines[lines.length-1] == '') lines.pop();
         for (let i in lines) {
             lines[i] = mclangHighlight(lines[i]);
