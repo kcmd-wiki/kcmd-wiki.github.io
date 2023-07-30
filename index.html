@@ -226,7 +226,7 @@ function loadPage() {
             if (firstline) contentElement.getElementsByTagName('h1')[0].classList.add('firstline');
             applyMcfunctionStyleGlobal();
         }
-        req.open('GET','https://raw.githubusercontent.com/k-cmd-wiki/content/main/' + window.location.hash.slice(1) + '.md')
+        req.open('GET','https://raw.githubusercontent.com/k-cmd-wiki/content/main/' + window.location.hash.slice(1) + '.md');
         req.send();
     } else {
         contentElement.innerHTML = '\
