@@ -84,7 +84,11 @@ h2 {
 }
 h3 {
     padding: 30px 0px 0px 0px;
-    margin: 30px 0px
+    margin: 30px 0px;
+}
+h3.subtitle {
+    padding: 0px;
+    margin: 10px 0px;
 }
 span.selector {
     color: #05cc94;
@@ -238,7 +242,7 @@ function loadPage() {
                     } else {
                         text += '</div><div class="feature col">'
                     }
-                    text += '<h3 class="fs-3 pb-3 border-bottom">'+line[0].trim()+'</h3>'
+                    text += '<h3 class="fs-3 pb-3 border-bottom subtitle">'+line[0].trim()+'</h3>'
                     count += 1;
                 }
             }
