@@ -1,6 +1,6 @@
-# k-cmd-wiki
+# kcmd-wiki
 
-https://k-cmd-wiki.github.io/
+https://kcmd-wiki.github.io/
 
 <br>
 <br>
@@ -8,7 +8,7 @@ https://k-cmd-wiki.github.io/
 
 ## 편집 기여하기
 
-https://github.com/k-cmd-wiki/content
+https://github.com/kcmd-wiki/content
 
 깃허브 계정이 있으시다면 위 링크에서 누구나 문서 작성과 편집이 가능합니다.
 
@@ -26,9 +26,9 @@ https://github.com/k-cmd-wiki/content
 
 ### 하위 페이지
 
-링크의 맨 뒤에 해시(`#`) 기호와 함께 어떤 문자열이 있으면 [content 리포지토리](https://github.com/k-cmd-wiki/content)에서 해당 이름의 .md 파일이 불러와집니다.
+링크의 맨 뒤에 해시(`#`) 기호와 함께 어떤 문자열이 있으면 [content 리포지토리](https://github.com/kcmd-wiki/content)에서 해당 이름의 .md 파일이 불러와집니다.
 
-예를 들어 https://k-cmd-wiki.github.io/#test >>> [test.md](https://github.com/k-cmd-wiki/content/blob/main/test.md) 와 같이 연결됩니다.
+예를 들어 https://kcmd-wiki.github.io/#test >>> [test.md](https://github.com/kcmd-wiki/content/blob/main/test.md) 와 같이 연결됩니다.
 
 하위 페이지는 .md 파일을 불러와서 html 코드로 변환하는 식으로 동작합니다. 여기에 [showdownjs](https://github.com/showdownjs/showdown)가 사용됩니다.
 
@@ -36,11 +36,11 @@ https://github.com/k-cmd-wiki/content
 
 ### chapters.txt
 
-[홈화면](https://k-cmd-wiki.github.io/)의 버튼을 누르면 해시 주소값이 입력되어 하위 페이지로 연결되는걸 확인하실 수 있습니다.
+[홈화면](https://kcmd-wiki.github.io/)의 버튼을 누르면 해시 주소값이 입력되어 하위 페이지로 연결되는걸 확인하실 수 있습니다.
 
-[chapters.txt](https://github.com/k-cmd-wiki/k-cmd-wiki.github.io/blob/main/chapters.txt) 파일을 수정하여 이러한 버튼과 링크, 부제목을 추가/편집/제거할 수 있습니다.
+[chapters.txt](https://github.com/kcmd-wiki/kcmd-wiki.github.io/blob/main/chapters.txt) 파일을 수정하여 이러한 버튼과 링크, 부제목을 추가/편집/제거할 수 있습니다.
 
-chapters.txt 파일에서 세미콜론(`:`) 기호가 정확히 1개 배치되어 있는 텍스트는 버튼으로 인식됩니다. 세미콜론의 왼쪽이 버튼의 이름이며, 오른쪽은 연결할 하위 페이지의 파일명이자 해시 주소입니다. 예를 들어 아래 버튼은 https://k-cmd-wiki.github.io/#test 로 연결됩니다.
+chapters.txt 파일에서 세미콜론(`:`) 기호가 정확히 1개 배치되어 있는 텍스트는 버튼으로 인식됩니다. 세미콜론의 왼쪽이 버튼의 이름이며, 오른쪽은 연결할 하위 페이지의 파일명이자 해시 주소입니다. 예를 들어 아래 버튼은 https://kcmd-wiki.github.io/#test 로 연결됩니다.
 ```
 버튼 이름 : test
 ```
