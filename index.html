@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/command_block_16.png"/>
-    <title>K-CMD WIKI</title>
+    <title>KCMD WIKI</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/showdown@2.0.4/dist/showdown.min.js"></script>
     <style>
@@ -147,8 +147,8 @@ span.var {
     <header class="p-2 text-bg-dark darkmode" id="mainheader">
     <div class="container mainpage">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="https://k-cmd-wiki.github.io/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-          <span class="fs-4">✱ K-CMD WIKI</span>
+        <a href="https://kcmd-wiki.github.io/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <span class="fs-4">✱ KCMD WIKI</span>
         </a>
         <ul class="nav col-12 col-lg-auto mb-2 justify-content-center align-items-center mb-md-0">
           <li class="px-2">
@@ -161,7 +161,7 @@ span.var {
             </button>
           </li>
           <li><a href="#" class="nav-link px-2 text-white"><s>Discord</s></a></li>
-          <li><a href="https://github.com/k-cmd-wiki/content" class="nav-link px-2 text-white">Github</a></li>
+          <li><a href="https://github.com/kcmd-wiki/content" class="nav-link px-2 text-white">Github</a></li>
         </ul>
       </div>
     </div>
@@ -230,13 +230,13 @@ function loadPage() {
             if (firstline) contentElement.getElementsByTagName('h1')[0].classList.add('firstline');
             applyMcfunctionStyleGlobal();
         }
-        req.open('GET','https://raw.githubusercontent.com/k-cmd-wiki/content/main/' + window.location.hash.slice(1) + '.md');
+        req.open('GET','https://raw.githubusercontent.com/kcmd-wiki/content/main/' + window.location.hash.slice(1) + '.md');
         req.send();
     } else {
         contentElement.innerHTML = '\
 <div class="alert alert-dark" role="alert">\
-  <b>💡 K-CMD 위키에 오신 걸 환영합니다!</b> <br><br>\
-  K-CMD 위키는 한국 마인크래프트 커맨드 분야의 자료를 담은 위키입니다.\
+  <b>💡 KCMD 위키에 오신 걸 환영합니다!</b> <br><br>\
+  KCMD 위키는 한국 마인크래프트 커맨드 분야의 자료를 담은 위키입니다.\
 </div>';
         contentElement.classList.remove("subpage");
         req.onload = () => {
@@ -262,7 +262,7 @@ function loadPage() {
             contentElement.innerHTML += text;
             applyMcfunctionStyleGlobal();
         }
-        req.open('GET','https://raw.githubusercontent.com/k-cmd-wiki/k-cmd-wiki.github.io/main/chapters.txt')
+        req.open('GET','https://raw.githubusercontent.com/kcmd-wiki/kcmd-wiki.github.io/main/chapters.txt')
         req.send();
     }
 }
