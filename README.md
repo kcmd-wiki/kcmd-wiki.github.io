@@ -5,7 +5,7 @@ https://kcmd-wiki.github.io/
 > [!WARNING]
 > ### 📢 사이트 이전 안내
 > KCMD 위키 프로젝트가 새 사이트로 이주했습니다.  
-> [https://kcmd-wiki.pages.dev/] 에서 확인해 주세요.
+> <https://kcmd-wiki.pages.dev/> 에서 확인해 주세요.
 
 
 <br>
